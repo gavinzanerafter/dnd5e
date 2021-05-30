@@ -1,3 +1,4 @@
+import { Coins, Currency } from './coinage'
 /*
 
 # Tools
@@ -70,3 +71,27 @@ A tool helps you to do something you couldn't otherwise do, such as craft or rep
 ***Thieves' Tools***. This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.
 
 */
+
+export enum ToolType {
+  ArtisansTools = "Artisan's Tools",
+  GamingSet = "Gaming Set",
+  MusicalInstruments = "Musical Instruments",
+  None = "None"
+}
+
+export type Tool = {
+  name: string,
+  type: ToolType,
+  weight: number,
+  cost: Coins
+}
+
+export const AlchemistsSupplies: Tool = {
+  name: "Alchemist's supplies"
+  type: ToolType.ArtisansTools
+  weight: 8
+  cost: {
+    amount: 50,
+    currency: Currency.Gold
+  }
+}
