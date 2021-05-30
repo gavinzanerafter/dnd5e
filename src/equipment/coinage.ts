@@ -49,5 +49,5 @@ export enum Currency {
 
 export type Coins = {
   amount: number
-  type: Currency
+  currency: Currency
 }

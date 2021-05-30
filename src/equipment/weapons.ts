@@ -159,29 +159,29 @@ export type Weapon = {
   versatility?: WeaponDamage
 }
 
-export const Longbow: Weapon = {
-  name: 'Longbow',
-  type: WeaponType.martialRanged,
-  cost: {
-    amount: 50,
-    currency: Currency.Gold,
-  },
-  damage: {
-    number: 1,
-    dice: 8,
-    type: DamageType.Piercing,
-  },
-  weight: 2,
-  properties: {
-    Ammunition: true,
-    Heavy: true,
-    TwoHanded: true,
-  },
-  range: {
-    min: 150,
-    max: 600,
-  },
-}
+// export const Longbow: Weapon = {
+//   name: 'Longbow',
+//   type: WeaponType.martialRanged,
+//   cost: {
+//     amount: 50,
+//     currency: Currency.Gold,
+//   },
+//   damage: {
+//     number: 1,
+//     dice: 8,
+//     type: DamageType.Piercing,
+//   },
+//   weight: 2,
+//   properties: {
+//     Ammunition: true,
+//     Heavy: true,
+//     TwoHanded: true,
+//   },
+//   range: {
+//     min: 150,
+//     max: 600,
+//   },
+// }
 
 export const Club: Weapon = {
   name: 'Club',
@@ -394,4 +394,583 @@ export const Spear: Weapon = {
     dice: 8,
     type: DamageType.Piercing,
   },
+}
+
+/*
+| Crossbow, light            | 25 gp | 1d8 piercing    | 5 lb.   | Ammunition (range 80/320), loading, two-handed         |
+| Dart                       | 5 cp  | 1d4 piercing    | 1/4 lb. | Finesse, thrown (range 20/60)                          |
+| Shortbow                   | 25 gp | 1d6 piercing    | 2 lb.   | Ammunition (range 80/320), two-handed                  |
+| Sling                      | 1 sp  | 1d4 bludgeoning | -       | Ammunition (range 30/120)                              |
+*/
+export const LightCrossbow: Weapon = {
+  name: 'Crossbow, light',
+  type: WeaponType.simpleRanged,
+  cost: {
+    amount: 25,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Piercing,
+  },
+  weight: 5,
+  properties: {
+    Ammunition: true,
+    Loading: true,
+    TwoHanded: true
+  },
+  range: {
+    min: 80,
+    max: 320,
+  },
+}
+export const Dart: Weapon = {
+  name: 'Dart',
+  type: WeaponType.simpleRanged,
+  cost: {
+    amount: 5,
+    currency: Currency.Copper,
+  },
+  damage: {
+    number: 1,
+    dice: 4,
+    type: DamageType.Piercing,
+  },
+  weight: 0.25,
+  properties: {
+    Finesse: true,
+    Thrown: true,
+  },
+  range: {
+    min: 20,
+    max: 60,
+  },
+}
+export const Shortbow: Weapon = {
+  name: 'Shortbow',
+  type: WeaponType.simpleRanged,
+  cost: {
+    amount: 25,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 6,
+    type: DamageType.Piercing,
+  },
+  weight: 2,
+  properties: {
+    Ammunition: true,
+    TwoHanded: true,
+  },
+  range: {
+    min: 80,
+    max: 320,
+  },
+}
+export const Sling: Weapon = {
+  name: 'Shortbow',
+  type: WeaponType.simpleRanged,
+  cost: {
+    amount: 1,
+    currency: Currency.Silver,
+  },
+  damage: {
+    number: 1,
+    dice: 4,
+    type: DamageType.Bludgeoning,
+  },
+  weight: 0,
+  properties: {
+    Ammunition: true,
+  },
+  range: {
+    min: 30,
+    max: 120,
+  },
+}
+
+/*
+| **Martial Melee Weapons**  |       |                 |         |                                                        |
+| Battleaxe                  | 10 gp | 1d8 slashing    | 4 lb.   | Versatile (1d10)                                       |
+| Flail                      | 10 gp | 1d8 bludgeoning | 2 lb.   | -                                                      |
+| Glaive                     | 20 gp | 1d10 slashing   | 6 lb.   | Heavy, reach, two-handed                               |
+| Greataxe                   | 30 gp | 1d12 slashing   | 7 lb.   | Heavy, two-handed                                      |
+| Greatsword                 | 50 gp | 2d6 slashing    | 6 lb.   | Heavy, two-handed                                      |
+| Halberd                    | 20 gp | 1d10 slashing   | 6 lb.   | Heavy, reach, two-handed                               |
+| Lance                      | 10 gp | 1d12 piercing   | 6 lb.   | Reach, special                                         |
+| Longsword                  | 15 gp | 1d8 slashing    | 3 lb.   | Versatile (1d10)                                       |
+| Maul                       | 10 gp | 2d6 bludgeoning | 10 lb.  | Heavy, two-handed                                      |
+| Morningstar                | 15 gp | 1d8 piercing    | 4 lb.   | -                                                      |
+| Pike                       | 5 gp  | 1d10 piercing   | 18 lb.  | Heavy, reach, two-handed                               |
+| Rapier                     | 25 gp | 1d8 piercing    | 2 lb.   | Finesse                                                |
+| Scimitar                   | 25 gp | 1d6 slashing    | 3 lb.   | Finesse, light                                         |
+| Shortsword                 | 10 gp | 1d6 piercing    | 2 lb.   | Finesse, light                                         |
+| Trident                    | 5 gp  | 1d6 piercing    | 4 lb.   | Thrown (range 20/60), versatile (1d8)                  |
+| War pick                   | 5 gp  | 1d8 piercing    | 2 lb.   | -                                                      |
+| Warhammer                  | 15 gp | 1d8 bludgeoning | 2 lb.   | Versatile (1d10)                                       |
+| Whip                       | 2 gp  | 1d4 slashing    | 3 lb.   | Finesse, reach                                         |
+*/
+
+export const Battleaxe: Weapon = {
+  name: 'Battleaxe',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 10,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Slashing,
+  },
+  weight: 4,
+  properties: {
+    Versatile: true,
+  },
+  versatility: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Slashing,
+  },
+}
+export const Flail: Weapon = {
+  name: 'Flail',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 10,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Bludgeoning,
+  },
+  weight: 2,
+  properties: {},
+}
+export const Gaive: Weapon = {
+  name: 'Gaive',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 20,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Slashing,
+  },
+  weight: 2,
+  properties: {
+    Heavy: true,
+    Reach: true,
+    TwoHanded: true,
+  },
+}
+export const Greataxe: Weapon = {
+  name: 'Greataxe',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 30,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 12,
+    type: DamageType.Slashing,
+  },
+  weight: 7,
+  properties: {
+    Heavy: true,
+    TwoHanded: true,
+  },
+}
+export const Greatsword: Weapon = {
+  name: 'Greatsword',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 50,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 2,
+    dice: 6,
+    type: DamageType.Slashing,
+  },
+  weight: 6,
+  properties: {
+    Heavy: true,
+    TwoHanded: true,
+  },
+}
+export const Halberd: Weapon = {
+  name: 'Halberd',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 20,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Slashing,
+  },
+  weight: 6,
+  properties: {
+    Heavy: true,
+    TwoHanded: true,
+  },
+}
+export const Lance: Weapon = {
+  name: 'Lance',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 10,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 12,
+    type: DamageType.Piercing,
+  },
+  weight: 6,
+  properties: {
+    Reach: true,
+    Special: true,
+  },
+}
+export const Longsword: Weapon = {
+  name: 'Longsword',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 15,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Slashing,
+  },
+  weight: 3,
+  properties: {
+    Versatile: true
+  },
+  versatility: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Slashing,
+  }
+}
+export const Maul: Weapon = {
+  name: 'Maul',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 10,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 2,
+    dice: 6,
+    type: DamageType.Bludgeoning,
+  },
+  weight: 10,
+  properties: {
+    Heavy: true,
+    TwoHanded: true
+  },
+}
+export const MorningStar: Weapon = {
+  name: 'Morning Star',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 15,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Piercing,
+  },
+  weight: 4,
+  properties: {},
+}
+export const Pike: Weapon = {
+  name: 'Pike',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 5,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Piercing,
+  },
+  weight: 18,
+  properties: {
+    Heavy: true,
+    Reach: true,
+    TwoHanded: true,
+  },
+}
+export const Rapier: Weapon = {
+  name: 'Rapier',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 25,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Piercing,
+  },
+  weight: 2,
+  properties: {
+    Finesse: true,
+  },
+}
+export const Scimitar: Weapon = {
+  name: 'Scimitar',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 25,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 6,
+    type: DamageType.Slashing,
+  },
+  weight: 3,
+  properties: {
+    Finesse: true,
+    Light: true,
+  },
+}
+export const Shortsword: Weapon = {
+  name: 'Shortsword',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 10,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 6,
+    type: DamageType.Piercing,
+  },
+  weight: 2,
+  properties: {
+    Finesse: true,
+    Light: true,
+  },
+}
+export const Trident: Weapon = {
+  name: 'Trident',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 5,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 6,
+    type: DamageType.Piercing,
+  },
+  weight: 4,
+  properties: {
+    Thrown: true,
+    Versatile: true,
+  },
+  range: {
+    min: 20,
+    max: 60
+  },
+  versatility: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Piercing,
+  },
+}
+export const WarPick: Weapon = {
+  name: 'War pick',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 5,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Piercing,
+  },
+  weight: 2,
+  properties: {},
+}
+export const Warhammer: Weapon = {
+  name: 'Warhammer',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 15,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Bludgeoning,
+  },
+  weight: 2,
+  properties: {
+    Versatile: true
+  },
+  versatility: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Bludgeoning,
+  }
+}
+export const Whip: Weapon = {
+  name: 'Whip',
+  type: WeaponType.martialMelee,
+  cost: {
+    amount: 2,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 4,
+    type: DamageType.Slashing,
+  },
+  weight: 3,
+  properties: {
+    Finesse: true,
+    Reach: true
+  },
+}
+
+/* *Martial Ranged Weapons*  |       |                 |         |                                                        |
+| Blowgun                    | 10 gp | 1 piercing      | 1 lb.   | Ammunition (range 25/100), loading                     |
+| Crossbow, hand             | 75 gp | 1d6 piercing    | 3 lb.   | Ammunition (range 30/120), light, loading              |
+| Crossbow, heavy            | 50 gp | 1d10 piercing   | 18 lb.  | Ammunition (range 100/400), heavy, loading, two-handed |
+| Longbow                    | 50 gp | 1d8 piercing    | 2 lb.   | Ammunition (range 150/600), heavy, two-handed          |
+| Net                        | 1 gp  | -               | 3 lb.   | Special, thrown (range 5/15)                           |
+|                            |       |                 |         |                                                        |*/
+
+
+export const Blowgun: Weapon = {
+  name: 'Blowgun',
+  type: WeaponType.martialRanged,
+  cost: {
+    amount: 10,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 1,
+    type: DamageType.Piercing,
+  },
+  weight: 1,
+  properties: {
+    Ammunition: true,
+    Loading: true
+  },
+  range: {
+    min: 25,
+    max: 100,
+  }
+}
+export const HandCrossbow: Weapon = {
+  name: 'Crossbow, hand',
+  type: WeaponType.martialRanged,
+  cost: {
+    amount: 75,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 6,
+    type: DamageType.Piercing,
+  },
+  weight: 3,
+  properties: {
+    Ammunition: true,
+    Light: true,
+    Loading: true
+  },
+  range: {
+    min: 30,
+    max: 120,
+  }
+}
+export const HeavyCrossbow: Weapon = {
+  name: 'Crossbow, heavy',
+  type: WeaponType.martialRanged,
+  cost: {
+    amount: 50,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 10,
+    type: DamageType.Piercing,
+  },
+  weight: 18,
+  properties: {
+    Ammunition: true,
+    Heavy: true,
+    Loading: true,
+    TwoHanded: true
+  },
+  range: {
+    min: 100,
+    max: 400,
+  }
+}
+export const Longbow: Weapon = {
+  name: 'Longbow',
+  type: WeaponType.martialRanged,
+  cost: {
+    amount: 50,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 1,
+    dice: 8,
+    type: DamageType.Piercing,
+  },
+  weight: 2,
+  properties: {
+    Ammunition: true,
+    Heavy: true,
+    TwoHanded: true
+  },
+  range: {
+    min: 150,
+    max: 600,
+  }
+}
+export const Net: Weapon = {
+  name: 'Net',
+  type: WeaponType.martialRanged,
+  cost: {
+    amount: 1,
+    currency: Currency.Gold,
+  },
+  damage: {
+    number: 0,
+    dice: 0,
+    type: DamageType.None,
+  },
+  weight: 2,
+  properties: {
+    Special: true,
+    Thrown: true,
+  },
+  range: {
+    min: 5,
+    max: 15,
+  }
 }

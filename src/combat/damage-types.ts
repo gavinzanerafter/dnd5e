@@ -47,4 +47,5 @@ export enum DamageType {
   Radiant = 'Radiant',
   Slashing = 'Slashing',
   Thunder = 'Thunder',
+  None = 'None',
 }
