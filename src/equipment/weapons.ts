@@ -396,12 +396,6 @@ export const Spear: Weapon = {
   },
 }
 
-/*
-| Crossbow, light            | 25 gp | 1d8 piercing    | 5 lb.   | Ammunition (range 80/320), loading, two-handed         |
-| Dart                       | 5 cp  | 1d4 piercing    | 1/4 lb. | Finesse, thrown (range 20/60)                          |
-| Shortbow                   | 25 gp | 1d6 piercing    | 2 lb.   | Ammunition (range 80/320), two-handed                  |
-| Sling                      | 1 sp  | 1d4 bludgeoning | -       | Ammunition (range 30/120)                              |
-*/
 export const LightCrossbow: Weapon = {
   name: 'Crossbow, light',
   type: WeaponType.simpleRanged,
@@ -418,13 +412,14 @@ export const LightCrossbow: Weapon = {
   properties: {
     Ammunition: true,
     Loading: true,
-    TwoHanded: true
+    TwoHanded: true,
   },
   range: {
     min: 80,
     max: 320,
   },
 }
+
 export const Dart: Weapon = {
   name: 'Dart',
   type: WeaponType.simpleRanged,
@@ -447,6 +442,7 @@ export const Dart: Weapon = {
     max: 60,
   },
 }
+
 export const Shortbow: Weapon = {
   name: 'Shortbow',
   type: WeaponType.simpleRanged,
@@ -469,8 +465,9 @@ export const Shortbow: Weapon = {
     max: 320,
   },
 }
+
 export const Sling: Weapon = {
-  name: 'Shortbow',
+  name: 'Sling',
   type: WeaponType.simpleRanged,
   cost: {
     amount: 1,
@@ -490,28 +487,6 @@ export const Sling: Weapon = {
     max: 120,
   },
 }
-
-/*
-| **Martial Melee Weapons**  |       |                 |         |                                                        |
-| Battleaxe                  | 10 gp | 1d8 slashing    | 4 lb.   | Versatile (1d10)                                       |
-| Flail                      | 10 gp | 1d8 bludgeoning | 2 lb.   | -                                                      |
-| Glaive                     | 20 gp | 1d10 slashing   | 6 lb.   | Heavy, reach, two-handed                               |
-| Greataxe                   | 30 gp | 1d12 slashing   | 7 lb.   | Heavy, two-handed                                      |
-| Greatsword                 | 50 gp | 2d6 slashing    | 6 lb.   | Heavy, two-handed                                      |
-| Halberd                    | 20 gp | 1d10 slashing   | 6 lb.   | Heavy, reach, two-handed                               |
-| Lance                      | 10 gp | 1d12 piercing   | 6 lb.   | Reach, special                                         |
-| Longsword                  | 15 gp | 1d8 slashing    | 3 lb.   | Versatile (1d10)                                       |
-| Maul                       | 10 gp | 2d6 bludgeoning | 10 lb.  | Heavy, two-handed                                      |
-| Morningstar                | 15 gp | 1d8 piercing    | 4 lb.   | -                                                      |
-| Pike                       | 5 gp  | 1d10 piercing   | 18 lb.  | Heavy, reach, two-handed                               |
-| Rapier                     | 25 gp | 1d8 piercing    | 2 lb.   | Finesse                                                |
-| Scimitar                   | 25 gp | 1d6 slashing    | 3 lb.   | Finesse, light                                         |
-| Shortsword                 | 10 gp | 1d6 piercing    | 2 lb.   | Finesse, light                                         |
-| Trident                    | 5 gp  | 1d6 piercing    | 4 lb.   | Thrown (range 20/60), versatile (1d8)                  |
-| War pick                   | 5 gp  | 1d8 piercing    | 2 lb.   | -                                                      |
-| Warhammer                  | 15 gp | 1d8 bludgeoning | 2 lb.   | Versatile (1d10)                                       |
-| Whip                       | 2 gp  | 1d4 slashing    | 3 lb.   | Finesse, reach                                         |
-*/
 
 export const Battleaxe: Weapon = {
   name: 'Battleaxe',
@@ -535,6 +510,7 @@ export const Battleaxe: Weapon = {
     type: DamageType.Slashing,
   },
 }
+
 export const Flail: Weapon = {
   name: 'Flail',
   type: WeaponType.martialMelee,
@@ -550,6 +526,7 @@ export const Flail: Weapon = {
   weight: 2,
   properties: {},
 }
+
 export const Gaive: Weapon = {
   name: 'Gaive',
   type: WeaponType.martialMelee,
@@ -569,6 +546,7 @@ export const Gaive: Weapon = {
     TwoHanded: true,
   },
 }
+
 export const Greataxe: Weapon = {
   name: 'Greataxe',
   type: WeaponType.martialMelee,
@@ -587,6 +565,7 @@ export const Greataxe: Weapon = {
     TwoHanded: true,
   },
 }
+
 export const Greatsword: Weapon = {
   name: 'Greatsword',
   type: WeaponType.martialMelee,
@@ -605,6 +584,7 @@ export const Greatsword: Weapon = {
     TwoHanded: true,
   },
 }
+
 export const Halberd: Weapon = {
   name: 'Halberd',
   type: WeaponType.martialMelee,
@@ -623,6 +603,7 @@ export const Halberd: Weapon = {
     TwoHanded: true,
   },
 }
+
 export const Lance: Weapon = {
   name: 'Lance',
   type: WeaponType.martialMelee,
@@ -641,6 +622,7 @@ export const Lance: Weapon = {
     Special: true,
   },
 }
+
 export const Longsword: Weapon = {
   name: 'Longsword',
   type: WeaponType.martialMelee,
@@ -655,14 +637,15 @@ export const Longsword: Weapon = {
   },
   weight: 3,
   properties: {
-    Versatile: true
+    Versatile: true,
   },
   versatility: {
     number: 1,
     dice: 10,
     type: DamageType.Slashing,
-  }
+  },
 }
+
 export const Maul: Weapon = {
   name: 'Maul',
   type: WeaponType.martialMelee,
@@ -678,9 +661,10 @@ export const Maul: Weapon = {
   weight: 10,
   properties: {
     Heavy: true,
-    TwoHanded: true
+    TwoHanded: true,
   },
 }
+
 export const MorningStar: Weapon = {
   name: 'Morning Star',
   type: WeaponType.martialMelee,
@@ -696,6 +680,7 @@ export const MorningStar: Weapon = {
   weight: 4,
   properties: {},
 }
+
 export const Pike: Weapon = {
   name: 'Pike',
   type: WeaponType.martialMelee,
@@ -715,6 +700,7 @@ export const Pike: Weapon = {
     TwoHanded: true,
   },
 }
+
 export const Rapier: Weapon = {
   name: 'Rapier',
   type: WeaponType.martialMelee,
@@ -732,6 +718,7 @@ export const Rapier: Weapon = {
     Finesse: true,
   },
 }
+
 export const Scimitar: Weapon = {
   name: 'Scimitar',
   type: WeaponType.martialMelee,
@@ -750,6 +737,7 @@ export const Scimitar: Weapon = {
     Light: true,
   },
 }
+
 export const Shortsword: Weapon = {
   name: 'Shortsword',
   type: WeaponType.martialMelee,
@@ -768,6 +756,7 @@ export const Shortsword: Weapon = {
     Light: true,
   },
 }
+
 export const Trident: Weapon = {
   name: 'Trident',
   type: WeaponType.martialMelee,
@@ -787,7 +776,7 @@ export const Trident: Weapon = {
   },
   range: {
     min: 20,
-    max: 60
+    max: 60,
   },
   versatility: {
     number: 1,
@@ -795,6 +784,7 @@ export const Trident: Weapon = {
     type: DamageType.Piercing,
   },
 }
+
 export const WarPick: Weapon = {
   name: 'War pick',
   type: WeaponType.martialMelee,
@@ -810,6 +800,7 @@ export const WarPick: Weapon = {
   weight: 2,
   properties: {},
 }
+
 export const Warhammer: Weapon = {
   name: 'Warhammer',
   type: WeaponType.martialMelee,
@@ -824,14 +815,15 @@ export const Warhammer: Weapon = {
   },
   weight: 2,
   properties: {
-    Versatile: true
+    Versatile: true,
   },
   versatility: {
     number: 1,
     dice: 10,
     type: DamageType.Bludgeoning,
-  }
+  },
 }
+
 export const Whip: Weapon = {
   name: 'Whip',
   type: WeaponType.martialMelee,
@@ -847,18 +839,9 @@ export const Whip: Weapon = {
   weight: 3,
   properties: {
     Finesse: true,
-    Reach: true
+    Reach: true,
   },
 }
-
-/* *Martial Ranged Weapons*  |       |                 |         |                                                        |
-| Blowgun                    | 10 gp | 1 piercing      | 1 lb.   | Ammunition (range 25/100), loading                     |
-| Crossbow, hand             | 75 gp | 1d6 piercing    | 3 lb.   | Ammunition (range 30/120), light, loading              |
-| Crossbow, heavy            | 50 gp | 1d10 piercing   | 18 lb.  | Ammunition (range 100/400), heavy, loading, two-handed |
-| Longbow                    | 50 gp | 1d8 piercing    | 2 lb.   | Ammunition (range 150/600), heavy, two-handed          |
-| Net                        | 1 gp  | -               | 3 lb.   | Special, thrown (range 5/15)                           |
-|                            |       |                 |         |                                                        |*/
-
 
 export const Blowgun: Weapon = {
   name: 'Blowgun',
@@ -875,13 +858,14 @@ export const Blowgun: Weapon = {
   weight: 1,
   properties: {
     Ammunition: true,
-    Loading: true
+    Loading: true,
   },
   range: {
     min: 25,
     max: 100,
-  }
+  },
 }
+
 export const HandCrossbow: Weapon = {
   name: 'Crossbow, hand',
   type: WeaponType.martialRanged,
@@ -898,13 +882,14 @@ export const HandCrossbow: Weapon = {
   properties: {
     Ammunition: true,
     Light: true,
-    Loading: true
+    Loading: true,
   },
   range: {
     min: 30,
     max: 120,
-  }
+  },
 }
+
 export const HeavyCrossbow: Weapon = {
   name: 'Crossbow, heavy',
   type: WeaponType.martialRanged,
@@ -922,13 +907,14 @@ export const HeavyCrossbow: Weapon = {
     Ammunition: true,
     Heavy: true,
     Loading: true,
-    TwoHanded: true
+    TwoHanded: true,
   },
   range: {
     min: 100,
     max: 400,
-  }
+  },
 }
+
 export const Longbow: Weapon = {
   name: 'Longbow',
   type: WeaponType.martialRanged,
@@ -945,13 +931,14 @@ export const Longbow: Weapon = {
   properties: {
     Ammunition: true,
     Heavy: true,
-    TwoHanded: true
+    TwoHanded: true,
   },
   range: {
     min: 150,
     max: 600,
-  }
+  },
 }
+
 export const Net: Weapon = {
   name: 'Net',
   type: WeaponType.martialRanged,
@@ -972,5 +959,5 @@ export const Net: Weapon = {
   range: {
     min: 5,
     max: 15,
-  }
+  },
 }
