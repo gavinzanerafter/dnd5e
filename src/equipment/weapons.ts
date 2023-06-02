@@ -243,7 +243,7 @@ export const GreatClub: Weapon = {
   },
 }
 
-export const HandAxe: Weapon = {
+export const Handaxe: Weapon = {
   name: 'HandAxe',
   type: WeaponType.simpleMelee,
   cost: {
@@ -488,7 +488,7 @@ export const Sling: Weapon = {
   },
 }
 
-export const Battleaxe: Weapon = {
+export const BattleAxe: Weapon = {
   name: 'Battleaxe',
   type: WeaponType.martialMelee,
   cost: {
@@ -527,8 +527,8 @@ export const Flail: Weapon = {
   properties: {},
 }
 
-export const Gaive: Weapon = {
-  name: 'Gaive',
+export const Glaive: Weapon = {
+  name: 'Glaive',
   type: WeaponType.martialMelee,
   cost: {
     amount: 20,
@@ -547,7 +547,7 @@ export const Gaive: Weapon = {
   },
 }
 
-export const Greataxe: Weapon = {
+export const GreatAxe: Weapon = {
   name: 'Greataxe',
   type: WeaponType.martialMelee,
   cost: {
@@ -566,7 +566,7 @@ export const Greataxe: Weapon = {
   },
 }
 
-export const Greatsword: Weapon = {
+export const GreatSword: Weapon = {
   name: 'Greatsword',
   type: WeaponType.martialMelee,
   cost: {

@@ -64,3 +64,100 @@ Mounts other than those listed here are available in fantasy gaming worlds, but 
 |              |           |        |
 
 */
+
+import { Coins, Currency } from "./coinage"
+
+enum Mounts {
+  camel = "Camel",
+  donkey = "Donkey",
+  elephant = "Elephant",
+  galley = "Galley",
+  draftHorse = "Draft Horse",
+  ridingHorse = "Riding Horse",
+  keelboat = "Keelboat",
+  longship = "Longship",
+  mastiff = "Mastiff",
+  mule = "Mule",
+  pony = "Pony",
+  rowboat = "Rowboat",
+  sailingShip = "Sailing Ship",
+  warhorse = "Warhorse",
+  warship = "Warship",
+}
+
+type Mount = {
+  mount: Mounts
+  cost: Coins
+  speed: number
+  carryingCapacity: number
+}
+
+export const Camel: Mount = {
+  mount: Mounts.camel,
+  cost: { amount: 50, currency: Currency.Gold },
+  speed: 50,
+  carryingCapacity: 480,
+}
+
+export const Donkey: Mount = {
+  mount: Mounts.donkey,
+  cost: { amount: 8, currency: Currency.Gold },
+  speed: 40,
+  carryingCapacity: 420,
+}
+
+export const Mule: Mount = {
+  mount: Mounts.mule,
+  cost: { amount: 8, currency: Currency.Gold },
+  speed: 40,
+  carryingCapacity: 420,
+}
+
+export const Elephant: Mount = {
+  mount: Mounts.elephant,
+  cost: { amount: 200, currency: Currency.Gold },
+  speed: 40,
+  carryingCapacity: 1320,
+}
+
+export const Galley: Mount = {
+  mount: Mounts.galley,
+  cost: { amount: 30000, currency: Currency.Gold },
+  speed: 4,
+  carryingCapacity: 0,
+}
+
+export const DraftHorse: Mount = {
+  mount: Mounts.draftHorse,
+  cost: { amount: 50, currency: Currency.Gold },
+  speed: 40,
+  carryingCapacity: 540,
+}
+
+export const RidingHorse: Mount = {
+  mount: Mounts.ridingHorse,
+  cost: { amount: 75, currency: Currency.Gold },
+  speed: 60,
+  carryingCapacity: 480,
+}
+
+export const Mastiff: Mount = {
+  mount: Mounts.mastiff,
+  cost: { amount: 25, currency: Currency.Gold },
+  speed: 40,
+  carryingCapacity: 195,
+}
+
+export const Pony: Mount = {
+  mount: Mounts.pony,
+  cost: { amount: 30, currency: Currency.Gold },
+  speed: 40,
+  carryingCapacity: 225,
+}
+
+export const Warhorse: Mount = {
+  mount: Mounts.warhorse,
+  cost: { amount: 400, currency: Currency.Gold },
+  speed: 60,
+  carryingCapacity: 540,
+}

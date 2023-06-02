@@ -37,6 +37,7 @@ Some races have subraces. Members of a subrace have the traits of the parent rac
 */
 
 import { Ability } from '../abilities/abilities'
+import { Weapon } from '../equipment/weapons'
 
 export type Age = {
   mature: number
@@ -70,12 +71,12 @@ export type Immunity = {
 }
 
 export type ToolProficiency = {
-  tool: string
+  tool: Tool
   condition?: string
 }
 
 export type WeaponProficiency = {
-  weapon: string
+  weapon: Weapon
   condition?: string
 }
 

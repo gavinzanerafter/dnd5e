@@ -1,4 +1,6 @@
 import { Ability } from '../abilities/abilities'
+import { BrewersSupplies, MasonsTools, SmithsTools, Tool } from '../equipment/tools'
+import { BattleAxe, Handaxe, LightHammer, Warhammer } from '../equipment/weapons'
 import { Size } from '../sizes/sizes'
 import {
   Race,
@@ -93,30 +95,18 @@ export default class Dwarf extends Race {
   public immunities: Immunity[] = []
 
   public toolProficiencies: ToolProficiency[] = [
-    {
-      tool: Tool.SmithsTools,
-    },
-    {
-      tool: Tool.BrewersSupplies,
-    },
-    {
-      tool: Tool.MasonsTools,
-    },
+    { tool: SmithsTools, condition: undefined },
+    { tool: BrewersSupplies, condition: undefined },
+    { tool: MasonsTools, condition: undefined },
   ]
+
   public weaponProficiencies: WeaponProficiency[] = [
-    {
-      weapon: Weapon.BattleAxe,
-    },
-    {
-      weapon: Weapon.HandAxe,
-    },
-    {
-      weapon: Weapon.LightHammer,
-    },
-    {
-      weapon: Weapon.Warhammer,
-    },
+    { weapon: BattleAxe, condition: undefined },
+    { weapon: Handaxe, condition: undefined },
+    { weapon: LightHammer, condition: undefined },
+    { weapon: Warhammer, condition: undefined },
   ]
+
   public skillProficiencies: SkillProficiency[] = [{}]
-  public subRaces
+  public subRaces = undefined
 }
